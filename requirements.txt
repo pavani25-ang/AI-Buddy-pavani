@@ -1,3 +1,6 @@
-
 streamlit
 google-generativeai
+streamlit-option-menu
+streamlit-lottie
+streamlit-extras
+Pillow
