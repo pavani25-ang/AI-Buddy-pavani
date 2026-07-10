@@ -1,32 +1,123 @@
-
 import streamlit as st
-import google.generativeai as genai
+from streamlit_option_menu import option_menu
 
-# ----------------------------
-# Gemini API
-# ----------------------------
+from utils import generate_response
 
 
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+# ---------------------
+# Page Config
+# ---------------------
 
-model=genai.GenerativeModel("gemini-2.5-flash")
+st.set_page_config(
+    page_title="AI Buddy Pavani",
+    page_icon="🤖",
+    layout="wide"
+)
 
-# ----------------------------
-# Streamlit UI
-# ----------------------------
 
-st.set_page_config(page_title="AI Buddy Pavani",page_icon="🤖")
+# ---------------------
+# Load CSS
+# ---------------------
 
-st.title("🤖 AI Buddy Pavani")
+with open("styles.css") as f:
+    st.markdown(
+        f"<style>{f.read()}</style>",
+        unsafe_allow_html=True
+    )
 
-st.write("Your Personal AI Learning Assistant")
 
-topic=st.text_input(
-    "Enter Topic",
+# ---------------------
+# Sidebar
+# ---------------------
+
+with st.sidebar:
+
+    st.image(
+        "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
+        width=120
+    )
+
+    st.markdown("## 🤖 AI Buddy")
+
+    selected = option_menu(
+        "",
+        [
+            "Dashboard",
+            "Learn",
+            "Quiz",
+            "Coding",
+            "Progress",
+            "Settings"
+        ],
+        icons=[
+            "house",
+            "book",
+            "patch-question",
+            "code-slash",
+            "graph-up",
+            "gear"
+        ],
+        default_index=0
+    )
+
+
+# ---------------------
+# Header
+# ---------------------
+
+st.markdown(
+    "<div class='main-title'>🤖 AI Buddy Pavani</div>",
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    "<div class='subtitle'>Your Personal AI Learning Assistant</div>",
+    unsafe_allow_html=True
+)
+
+
+# ---------------------
+# Dashboard Cards
+# ---------------------
+
+c1, c2, c3, c4 = st.columns(4)
+
+with c1:
+    st.markdown(
+        "<div class='metric'>📚<br>Topics<br><h2>48</h2></div>",
+        unsafe_allow_html=True
+    )
+
+with c2:
+    st.markdown(
+        "<div class='metric'>🔥<br>Streak<br><h2>12</h2></div>",
+        unsafe_allow_html=True
+    )
+
+with c3:
+    st.markdown(
+        "<div class='metric'>🧠<br>Quizzes<br><h2>20</h2></div>",
+        unsafe_allow_html=True
+    )
+
+with c4:
+    st.markdown(
+        "<div class='metric'>🏆<br>XP<br><h2>1240</h2></div>",
+        unsafe_allow_html=True
+    )
+
+st.write("")
+
+# ---------------------
+# Input
+# ---------------------
+
+topic = st.text_input(
+    "🔍 What do you want to learn today?",
     placeholder="Example: Artificial Intelligence"
 )
 
-activity=st.selectbox(
+activity = st.selectbox(
     "Choose Activity",
     [
         "Explain Concept",
@@ -37,73 +128,20 @@ activity=st.selectbox(
     ]
 )
 
-if st.button("Generate"):
+if st.button("🚀 Generate"):
 
-    if topic=="":
-
+    if topic == "":
         st.warning("Please enter a topic.")
 
     else:
 
-        if activity=="Explain Concept":
+        with st.spinner("🤖 AI is Thinking..."):
 
-            prompt=f"""
-Explain {topic} in simple language as if teaching a 15-year-old student.
-Use easy words.
-Use one analogy.
-Keep it under 150 words.
-"""
+            answer = generate_response(topic, activity)
 
-        elif activity=="Real-Life Example":
-
-            prompt=f"""
-Give one real-life example of {topic}.
-Explain how it works in simple language.
-"""
-
-        elif activity=="Summary":
-
-            prompt=f"""
-Summarize {topic} in five simple bullet points.
-"""
-
-        elif activity=="Generate Quiz":
-
-            prompt=f"""
-Create five multiple-choice questions on {topic}.
-
-Each question must contain
-
-A)
-B)
-C)
-D)
-
-After every question provide
-
-Correct Answer
-
-Short Explanation
-"""
-
-        elif activity=="Teach Step-by-Step":
-
-            prompt=f"""
-You are a friendly teacher.
-
-Teach {topic} step by step.
-
-Start from beginner level.
-
-Explain one concept at a time.
-
-Ask one question at the end.
-"""
-
-        with st.spinner("AI is Thinking..."):
-
-            response=model.generate_content(prompt)
-
-            st.success("Done!")
-
-            st.write(response.text)
+        st.markdown(
+            "<div class='response'>"
+            + answer.replace("\n", "<br>")
+            + "</div>",
+            unsafe_allow_html=True
+        )
