@@ -29,7 +29,7 @@ with open("styles.css") as f:
 with st.sidebar:
 
     st.image(
-        "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
+     "assets/logo.png",
         width=120
     )
 
