@@ -1,185 +1,231 @@
-/* Background */
+/* ===========================
+   GLOBAL
+=========================== */
 
 .stApp{
-background:#0f172a;
-color:white;
+    background:#F8FAFC;
+    color:#111827;
 }
-
 
 /* Hide Streamlit */
 
-#MainMenu{
-visibility:hidden;
-}
-
-footer{
-visibility:hidden;
-}
-
+#MainMenu,
+footer,
 header{
-visibility:hidden;
+    visibility:hidden;
 }
 
-
-/* Sidebar */
+/* ===========================
+   SIDEBAR
+=========================== */
 
 section[data-testid="stSidebar"]{
-
-background:#111827;
-
-border-right:1px solid #334155;
-
+    background:#FFFFFF;
+    border-right:1px solid #E5E7EB;
 }
 
-
-/* Title */
+/* ===========================
+   TITLE
+=========================== */
 
 .main-title{
-
-font-size:42px;
-
-font-weight:bold;
-
-color:white;
-
-text-align:center;
-
-margin-top:10px;
-
+    font-size:46px;
+    font-weight:700;
+    color:#1E293B;
+    text-align:center;
+    margin-top:10px;
 }
-
 
 .subtitle{
-
-text-align:center;
-
-font-size:18px;
-
-color:#cbd5e1;
-
-margin-bottom:40px;
-
+    text-align:center;
+    font-size:18px;
+    color:#64748B;
+    margin-bottom:40px;
 }
 
-
-/* Search Box */
+/* ===========================
+   TEXT INPUT
+=========================== */
 
 input{
-
-border-radius:15px !important;
-
-border:2px solid #3b82f6 !important;
-
-padding:12px !important;
-
+    background:#FFFFFF !important;
+    color:#111827 !important;
+    border:2px solid #CBD5E1 !important;
+    border-radius:15px !important;
+    padding:14px !important;
 }
 
+input:focus{
+    border:2px solid #2563EB !important;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+}
 
-/* Buttons */
+/* ===========================
+   SELECT BOX
+=========================== */
+
+div[data-baseweb="select"]{
+    background:#FFFFFF;
+    border-radius:15px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
 
 .stButton>button{
 
-width:100%;
+    width:100%;
 
-background:#3b82f6;
+    background:#2563EB;
 
-color:white;
+    color:white;
 
-border:none;
+    border:none;
 
-border-radius:12px;
+    border-radius:15px;
 
-padding:14px;
+    padding:14px;
 
-font-size:18px;
+    font-size:18px;
 
-font-weight:bold;
+    font-weight:600;
 
-transition:.3s;
-
+    transition:.3s;
 }
-
 
 .stButton>button:hover{
 
-background:#2563eb;
+    background:#1D4ED8;
 
-transform:scale(1.03);
-
-}
-
-
-/* Cards */
-
-.card{
-
-background:#ffffff;
-
-padding:20px;
-
-border-radius:18px;
-
-margin-top:15px;
-
-box-shadow:0px 10px 25px rgba(0,0,0,.3);
+    transform:translateY(-2px);
 
 }
 
-
-/* AI Response */
-
-.response{
-
-background:#111827;
-
-padding:25px;
-
-border-radius:18px;
-
-margin-top:25px;
-
-font-size:18px;
-
-line-height:1.8;
-
-border-left:5px solid #3b82f6;
-
-}
-
-
-/* Dashboard Cards */
+/* ===========================
+   DASHBOARD CARD
+=========================== */
 
 .metric{
 
-background:#1e293b;
+    background:#FFFFFF;
 
-padding:20px;
+    color:#111827;
 
-border-radius:15px;
+    border:1px solid #E5E7EB;
 
-text-align:center;
+    border-radius:20px;
 
-font-size:22px;
+    padding:25px;
 
-font-weight:bold;
+    text-align:center;
 
-box-shadow:0px 6px 20px rgba(0,0,0,.25);
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+    transition:.3s;
 
 }
 
+.metric:hover{
 
-/* Scroll */
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+/* ===========================
+   NORMAL CARD
+=========================== */
+
+.card{
+
+    background:#FFFFFF;
+
+    color:#111827;
+
+    border-radius:20px;
+
+    border:1px solid #E5E7EB;
+
+    padding:25px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+   AI RESPONSE
+=========================== */
+
+.response{
+
+    background:#FFFFFF;
+
+    color:#111827;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-top:25px;
+
+    border-left:6px solid #2563EB;
+
+    border:1px solid #E5E7EB;
+
+    line-height:1.9;
+
+    font-size:17px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+   SIDEBAR MENU
+=========================== */
+
+.nav-link{
+
+    color:#374151 !important;
+
+}
+
+.nav-link-selected{
+
+    background:#2563EB !important;
+
+    color:white !important;
+
+    border-radius:12px;
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
 
 ::-webkit-scrollbar{
 
-width:8px;
+    width:8px;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-background:#ffffff;
+    background:#CBD5E1;
 
-border-radius:20px;
+    border-radius:20px;
+
+}
+
+/* ===========================
+   HR
+=========================== */
+
+hr{
+
+    border-color:#E5E7EB;
 
 }
