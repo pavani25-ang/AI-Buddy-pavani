@@ -1,32 +1,50 @@
-/* ===========================
+/* ==========================================
    GLOBAL
-=========================== */
+========================================== */
 
 .stApp{
     background:#F8FAFC;
     color:#111827;
 }
 
-/* Hide Streamlit */
+/* Hide Streamlit elements */
 
 #MainMenu,
-footer,
-header{
+header,
+footer{
     visibility:hidden;
 }
 
-/* ===========================
+/* ==========================================
+   HIDE DEFAULT STREAMLIT PAGE NAVIGATION
+========================================== */
+
+[data-testid="stSidebarNav"]{
+    display:none !important;
+}
+
+[data-testid="stSidebarNavItems"]{
+    display:none !important;
+}
+
+/* ==========================================
    SIDEBAR
-=========================== */
+========================================== */
 
 section[data-testid="stSidebar"]{
     background:#FFFFFF;
     border-right:1px solid #E5E7EB;
 }
 
-/* ===========================
-   TITLE
-=========================== */
+/* Remove top spacing */
+
+section[data-testid="stSidebar"] > div{
+    padding-top:10px;
+}
+
+/* ==========================================
+   TITLES
+========================================== */
 
 .main-title{
     font-size:46px;
@@ -40,12 +58,12 @@ section[data-testid="stSidebar"]{
     text-align:center;
     font-size:18px;
     color:#64748B;
-    margin-bottom:40px;
+    margin-bottom:35px;
 }
 
-/* ===========================
+/* ==========================================
    TEXT INPUT
-=========================== */
+========================================== */
 
 input{
     background:#FFFFFF !important;
@@ -60,18 +78,18 @@ input:focus{
     box-shadow:0 0 0 4px rgba(37,99,235,.15);
 }
 
-/* ===========================
-   SELECT BOX
-=========================== */
+/* ==========================================
+   SELECTBOX
+========================================== */
 
 div[data-baseweb="select"]{
     background:#FFFFFF;
     border-radius:15px;
 }
 
-/* ===========================
+/* ==========================================
    BUTTON
-=========================== */
+========================================== */
 
 .stButton>button{
 
@@ -102,93 +120,92 @@ div[data-baseweb="select"]{
 
 }
 
-/* ===========================
-   DASHBOARD CARD
-=========================== */
+/* ==========================================
+   METRIC CARDS
+========================================== */
 
 .metric{
 
     background:#FFFFFF;
 
-    color:#111827;
-
     border:1px solid #E5E7EB;
 
-    border-radius:20px;
+    border-radius:18px;
 
     padding:25px;
 
     text-align:center;
 
+    color:#111827;
+
     box-shadow:0 8px 24px rgba(0,0,0,.08);
 
     transition:.3s;
-
 }
 
 .metric:hover{
 
     transform:translateY(-5px);
 
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
 
 }
 
-/* ===========================
+/* ==========================================
    NORMAL CARD
-=========================== */
+========================================== */
 
 .card{
 
     background:#FFFFFF;
 
-    color:#111827;
-
-    border-radius:20px;
-
     border:1px solid #E5E7EB;
 
+    border-radius:18px;
+
     padding:25px;
+
+    color:#111827;
 
     box-shadow:0 8px 24px rgba(0,0,0,.08);
 
 }
 
-/* ===========================
-   AI RESPONSE
-=========================== */
+/* ==========================================
+   RESPONSE BOX
+========================================== */
 
 .response{
 
     background:#FFFFFF;
 
-    color:#111827;
-
-    border-radius:20px;
-
-    padding:30px;
-
-    margin-top:25px;
-
     border-left:6px solid #2563EB;
+
+    border-radius:18px;
 
     border:1px solid #E5E7EB;
 
-    line-height:1.9;
+    padding:25px;
+
+    color:#111827;
+
+    line-height:1.8;
 
     font-size:17px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 
 }
 
-/* ===========================
+/* ==========================================
    SIDEBAR MENU
-=========================== */
+========================================== */
 
 .nav-link{
 
     color:#374151 !important;
+
+    font-weight:500;
 
 }
 
@@ -202,9 +219,9 @@ div[data-baseweb="select"]{
 
 }
 
-/* ===========================
+/* ==========================================
    SCROLLBAR
-=========================== */
+========================================== */
 
 ::-webkit-scrollbar{
 
@@ -220,9 +237,9 @@ div[data-baseweb="select"]{
 
 }
 
-/* ===========================
-   HR
-=========================== */
+/* ==========================================
+   HORIZONTAL LINE
+========================================== */
 
 hr{
 
