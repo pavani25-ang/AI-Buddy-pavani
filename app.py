@@ -7,7 +7,7 @@ from utils import generate_response
 # ---------------------
 
 st.set_page_config(
-    page_title="AI Buddy Pavani",
+    page_title="AI Learning Buddy - Pavani",
     page_icon="🤖",
     layout="wide"
 )
