@@ -61,7 +61,7 @@ with st.sidebar:
 # ---------------------
 
 st.markdown(
-    "<div class='main-title'>🤖 "AI Learning Buddy - Pavani",</div>",
+    "<div class='main-title'>🤖 AI Learning Buddy - Pavani,</div>",
     unsafe_allow_html=True
 )
 
